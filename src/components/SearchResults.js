@@ -18,22 +18,28 @@ const ResultFullName = styled.p`
   font-size: 0.8em;
   font-weight: 700;
   overflow-wrap: break-word;
+  margin: 2px 0 0 0;
 `;
 
 const ResultDescription = styled.p`
   font-size: 0.8em;
   overflow-wrap: break-word;
+  margin-top: 2px;
 `;
 
-const SearchResults = ({ searchResults }) => {
+const SearchResults = ({ searchResults, searchCategory }) => {
   const renderSearchResults = searchResults.length > 0 ? searchResults.map(result => {
-    return (
+    return searchCategory === 'repo' ? (
       <div key={result.node_id}>
         <ResultTitleLink href={result.html_url} target='_blank'>{result.name}</ResultTitleLink>
         <ResultFullName>{result.full_name}</ResultFullName>
         <ResultDescription>{result.description}</ResultDescription>
       </div>
-    )
+    ) : (
+        <div key={result.node_id}>
+          <ResultTitleLink href={result.html_url} target='_blank'>{result.login}</ResultTitleLink>
+        </div>
+      )
   }) : null;
   return (
     <SearchResultsGrid>

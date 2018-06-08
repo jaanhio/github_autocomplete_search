@@ -15,6 +15,11 @@ const StyledButton = styled.button`
   border: none;
 `;
 
+const StyledSelect = styled.select`
+  height: 36px;
+  font-size: 0.6em;
+`;
+
 const StyledInput = styled.input`
   width: 60vw;
   font-size: 1em;
@@ -24,26 +29,28 @@ const StyledInput = styled.input`
   font-weight: 200;
 `;
 
-const AutocompleteSearch = ({ autocompleteSuggestions, handleSearchChange, searchTerm, getSearchResults }) => {
+const AutocompleteSearch = ({ autocompleteSuggestions, handleSearchChange, handleSelectChange, searchTerm, searchCategory, getSearchResults }) => {
 
   const renderOptions = autocompleteSuggestions.map(suggestion => {
-    return (
+    return searchCategory === 'repo' ? (
       <option key={suggestion.node_id}>{suggestion.name}</option>
-    );
+    ) : (<option key={suggestion.node_id}>{suggestion.login}</option>)
   });
+
+  const placeholderMessage = searchCategory === 'repo' ? 'Find Github repo (e.g express)' : 'Find Github user';
 
   return (
     <SearchbarWrapper>
-      <select name='search-option'>
-        <option value='1'>Repository</option>
-        <option value='2'>User</option>
-      </select>
-      <StyledInput list='repoList' onChange={handleSearchChange} value={searchTerm} placeholder='Find Github repo (e.g express)' />
+      <StyledSelect name='search-option' onChange={handleSelectChange}>
+        <option value='repo'>Repository</option>
+        <option value='user'>User</option>
+      </StyledSelect>
+      <StyledInput list='repoList' onChange={handleSearchChange} value={searchTerm} placeholder={placeholderMessage} />
       <datalist id='repoList'>
         {renderOptions}
       </datalist>
       <StyledButton onClick={getSearchResults}>
-        <i class="material-icons" style={{ color: 'white' }}>search</i>
+        <i className="material-icons" style={{ color: 'white' }}>search</i>
       </StyledButton>
     </SearchbarWrapper>
   )
