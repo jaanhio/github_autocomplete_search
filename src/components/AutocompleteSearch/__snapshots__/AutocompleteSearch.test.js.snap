@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AutocompleteSearch /> component render without throwing error 1`] = `
+<styled.div>
+  <styled.select
+    name="search-option"
+  >
+    <option
+      value="repo"
+    >
+      Repository
+    </option>
+    <option
+      value="user"
+    >
+      User
+    </option>
+  </styled.select>
+  <styled.input
+    list="repoList"
+    placeholder="Find Github repo (e.g express)"
+    value=""
+  />
+  <datalist
+    id="repoList"
+  />
+  <styled.button>
+    <i
+      className="material-icons"
+      style={
+        Object {
+          "color": "white",
+        }
+      }
+    >
+      search
+    </i>
+  </styled.button>
+</styled.div>
+`;

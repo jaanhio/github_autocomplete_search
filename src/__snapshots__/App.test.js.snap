@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> component renders <App /> component without throwing error 1`] = `
+<styled.div>
+  <StyledHeader>
+    Github Autocomplete Search
+  </StyledHeader>
+  <AutocompleteSearch
+    autocompleteSuggestions={Array []}
+    getSearchResults={[Function]}
+    handleSearchChange={[Function]}
+    handleSelectChange={[Function]}
+    searchCategory="repo"
+    searchTerm=""
+  />
+  <SearchResults
+    searchCategory="repo"
+    searchResults={Array []}
+  />
+</styled.div>
+`;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const SearchResultsGrid = styled.div`
   display: grid;
@@ -46,6 +47,16 @@ const SearchResults = ({ searchResults, searchCategory }) => {
       {renderSearchResults}
     </SearchResultsGrid>
   );
+}
+
+SearchResults.propTypes = {
+  searchResults: PropTypes.array.isRequired,
+  searchCategory: PropTypes.string.isRequired
+};
+
+SearchResults.defaultProps = {
+  searchResults: [],
+  searchCategory: 'repo'
 }
 
 export default SearchResults;

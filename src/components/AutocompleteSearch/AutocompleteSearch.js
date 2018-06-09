@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const SearchbarWrapper = styled.div`
   display: flex;
@@ -55,5 +56,20 @@ const AutocompleteSearch = ({ autocompleteSuggestions, handleSearchChange, handl
     </SearchbarWrapper>
   )
 }
+
+AutocompleteSearch.propTypes = {
+  autocompleteSuggestions: PropTypes.array.isRequired,
+  handleSearchChange: PropTypes.func,
+  handleSelectChange: PropTypes.func,
+  searchTerm: PropTypes.string.isRequired,
+  searchCategory: PropTypes.string.isRequired,
+  getSearchResults: PropTypes.func
+};
+
+AutocompleteSearch.defaultProps = {
+  autocompleteSuggestions: [],
+  searchTerm: '',
+  searchCategory: 'repo'
+};
 
 export default AutocompleteSearch;

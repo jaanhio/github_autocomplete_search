@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import _ from 'lodash';
-import AutocompleteSearch from './components/AutocompleteSearch';
-import SearchResults from './components/SearchResults';
+import AutocompleteSearch from './components/AutocompleteSearch/AutocompleteSearch';
+import SearchResults from './components/SearchResults/SearchResults';
 import styled from 'styled-components';
 
 const AppWrapper = styled.div`
@@ -18,6 +18,7 @@ const StyledHeader = styled.h1`
   margin: 40px 20px;
 `;
 
+StyledHeader.displayName = 'StyledHeader';
 class App extends Component {
   state = {
     searchTerm: '',
