@@ -6,17 +6,17 @@ Implemented autocomplete searchbar for searching Github repos/users using React,
 
 #### Clone repo
 
-`git clone https://github.com/jaanhio/github_autocomplete_search.git`
+`git clone https://github.com/jaanhio/github_autocomplete_search.git && cd github_autocomplete_search`
 
-
+---
 #### Install dependencies
 
 `yarn`
-
+---
 #### Start development server
 
 `yarn start`
-
+---
 #### Run tests
 
 `yarn test`
