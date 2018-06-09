@@ -1,3 +1,65 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<SearchResults /> component render without throwing error 1`] = `<styled.div />`;
+exports[`<SearchResults /> component render without throwing error with repo searchResults 1`] = `
+<styled.div>
+  <div
+    key="12345678"
+  >
+    <styled.a
+      href="www.google.com"
+      target="_blank"
+    >
+      result1
+    </styled.a>
+    <styled.p>
+      full_result1
+    </styled.p>
+    <styled.p>
+      result1_description
+    </styled.p>
+  </div>
+  <div
+    key="87654321"
+  >
+    <styled.a
+      href="www.google.com"
+      target="_blank"
+    >
+      result2
+    </styled.a>
+    <styled.p>
+      full_result2
+    </styled.p>
+    <styled.p>
+      result2_description
+    </styled.p>
+  </div>
+</styled.div>
+`;
+
+exports[`<SearchResults /> component render without throwing error with user searchResults 1`] = `
+<styled.div>
+  <div
+    key="12345678"
+  >
+    <styled.a
+      href="www.google.com"
+      target="_blank"
+    >
+      user1
+    </styled.a>
+  </div>
+  <div
+    key="87654321"
+  >
+    <styled.a
+      href="www.google.com"
+      target="_blank"
+    >
+      user2
+    </styled.a>
+  </div>
+</styled.div>
+`;
+
+exports[`<SearchResults /> component render without throwing error without searchResults 1`] = `<styled.div />`;

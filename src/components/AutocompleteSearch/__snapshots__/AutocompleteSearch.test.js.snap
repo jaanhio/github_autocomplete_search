@@ -1,6 +1,106 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AutocompleteSearch /> component render without throwing error 1`] = `
+exports[`<AutocompleteSearch /> component render without throwing error with mock repo suggestions 1`] = `
+<styled.div>
+  <styled.select
+    name="search-option"
+  >
+    <option
+      value="repo"
+    >
+      Repository
+    </option>
+    <option
+      value="user"
+    >
+      User
+    </option>
+  </styled.select>
+  <styled.input
+    list="repoList"
+    placeholder="Find Github repo (e.g express)"
+    value=""
+  />
+  <datalist
+    id="repoList"
+  >
+    <option
+      key="12345678"
+    >
+      suggestion1
+    </option>
+    <option
+      key="87654321"
+    >
+      suggestion2
+    </option>
+  </datalist>
+  <styled.button>
+    <i
+      className="material-icons"
+      style={
+        Object {
+          "color": "white",
+        }
+      }
+    >
+      search
+    </i>
+  </styled.button>
+</styled.div>
+`;
+
+exports[`<AutocompleteSearch /> component render without throwing error with mock user suggestions 1`] = `
+<styled.div>
+  <styled.select
+    name="search-option"
+  >
+    <option
+      value="repo"
+    >
+      Repository
+    </option>
+    <option
+      value="user"
+    >
+      User
+    </option>
+  </styled.select>
+  <styled.input
+    list="repoList"
+    placeholder="Find Github user"
+    value=""
+  />
+  <datalist
+    id="repoList"
+  >
+    <option
+      key="12345678"
+    >
+      user1
+    </option>
+    <option
+      key="87654321"
+    >
+      user2
+    </option>
+  </datalist>
+  <styled.button>
+    <i
+      className="material-icons"
+      style={
+        Object {
+          "color": "white",
+        }
+      }
+    >
+      search
+    </i>
+  </styled.button>
+</styled.div>
+`;
+
+exports[`<AutocompleteSearch /> component render without throwing error without suggestions 1`] = `
 <styled.div>
   <styled.select
     name="search-option"
