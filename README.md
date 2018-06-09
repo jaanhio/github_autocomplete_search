@@ -2,6 +2,8 @@
 
 Implemented autocomplete searchbar for searching Github repos/users using React, lodash and [Github search api v3](https://developer.github.com/v3/search/).
 
+[Styled-components](https://www.styled-components.com/) used for styling react components.
+
 ## Instructions
 
 #### Clone repo
@@ -12,10 +14,12 @@ Implemented autocomplete searchbar for searching Github repos/users using React,
 #### Install dependencies
 
 `yarn`
+
 ---
 #### Start development server
 
 `yarn start`
+
 ---
 #### Run tests
 
