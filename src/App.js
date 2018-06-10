@@ -27,14 +27,23 @@ class App extends Component {
     searchResults: []
   }
 
+  /*
+  * handleSearchChange
+  * Handles changes to search bar input and updates searchTerm state
+  * Upon updating searchTerm, debouncedGetAutocompleteSuggestions will be called  
+  */
   handleSearchChange = event => {
     this.setState({
       searchTerm: event.target.value
     });
-    this.debouncedGetAutocompleteSuggestions(event.target.value);
+    this.debouncedGetAutocompleteSuggestions();
   }
 
-  handleSelectChange = event => { // handles selection of select element. whenever new selection is made, searchbar, autocomplete suggestions and search results will be reset
+  /*
+  * handleSelectChange
+  * Handles selection of select element. Whenever a new selection is made, autocomplete suggestions and search results will be reset
+  */
+  handleSelectChange = event => {
     this.setState({
       searchCategory: event.target.value,
       searchTerm: '',
@@ -43,11 +52,14 @@ class App extends Component {
     });
   }
 
-
-  getAutocompleteSuggestions = (input) => {
-    const { searchCategory } = this.state;
+  /*
+  * getAutocompleteSuggestions
+  * Calls Github Search API and retrieves only top 10 results for autocomplete suggestions
+  */
+  getAutocompleteSuggestions = () => {
+    const { searchTerm, searchCategory } = this.state;
     // retrieve only top 10 results for autocomplete suggestions
-    const githubQuery = searchCategory === 'repo' ? `https://api.github.com/search/repositories?q=${input}+in:name&sort=stars&order=desc&per_page=10` : `https://api.github.com/search/users?q=${input}+in:login&per_page=10`;
+    const githubQuery = searchCategory === 'repo' ? `https://api.github.com/search/repositories?q=${searchTerm}+in:name&sort=stars&order=desc&per_page=10` : `https://api.github.com/search/users?q=${searchTerm}+in:login&per_page=10`;
     axios.get(githubQuery)
       .then(res => {
         this.setState({
@@ -56,6 +68,10 @@ class App extends Component {
       });
   }
 
+  /*
+  * getSearchResults
+  * Calls Github SearchRestrives all results to display upon submit
+  */
   getSearchResults = () => {
     const { searchTerm, searchCategory } = this.state;
     // retrieve all results to display upon submit
@@ -68,7 +84,11 @@ class App extends Component {
       });
   }
 
-  debouncedGetAutocompleteSuggestions = _.debounce((input) => { this.getAutocompleteSuggestions(input) }, 500); //github search api will only be called 500ms after user finishes input
+  /*
+  * debouncedGetAutocompleteSuggestions
+  * Uses lodash debounce to call getAutocompleteSuggestions method 500ms after user finishes input
+  */
+  debouncedGetAutocompleteSuggestions = _.debounce(() => { this.getAutocompleteSuggestions() }, 500);
 
   render() {
     const { searchTerm, searchCategory, autocompleteSuggestions, searchResults } = this.state;
