@@ -4,7 +4,7 @@ Implemented autocomplete searchbar for searching Github repos/users using React,
 
 [Styled-components](https://www.styled-components.com/) used for styling react components.
 
-![](https://media.giphy.com/media/khHIyBDnTpLnaQuMCf/200w_d.gif)
+![gif goes here](https://media.giphy.com/media/khHIyBDnTpLnaQuMCf/200w_d.gif)
 
 ## Instructions
 
