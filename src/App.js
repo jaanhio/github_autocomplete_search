@@ -68,6 +68,10 @@ class App extends Component {
       });
   }
 
+  testFunction = () => {
+    return true;
+  }
+
   /*
   * getSearchResults
   * Calls Github SearchRestrives all results to display upon submit

@@ -2,6 +2,8 @@ import React from 'react';
 import App from './App';
 import { shallow, mount } from 'enzyme';
 import toJson from 'enzyme-to-json';
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
 
 describe('<App /> component', () => {
 
@@ -36,6 +38,20 @@ describe('<App /> component', () => {
     it('initial search results to be empty array', () => {
       const wrapper = shallow(<App />);
       expect(wrapper.instance().state.searchResults === []);
+    });
+  });
+
+  describe('Methods of App component', () => {
+
+    it('testFunction should return true', () => {
+      const wrapper = shallow(<App />);
+      expect(wrapper.instance().testFunction()).toEqual(true);
+    });
+
+    it('test getSearchResults method', () => {
+      const wrapper = shallow(<App />);
+      const mock = new MockAdapter(axios);
+      console.log(mock);
     });
   });
 });
