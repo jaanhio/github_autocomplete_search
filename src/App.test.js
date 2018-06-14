@@ -48,10 +48,15 @@ describe('<App /> component', () => {
       expect(wrapper.instance().testFunction()).toEqual(true);
     });
 
-    it('test getSearchResults method', () => {
+    it('getSearchResults method', () => {
       const wrapper = shallow(<App />);
       const mock = new MockAdapter(axios);
-      console.log(mock);
+      mock.onGet('https://api.github.com/search/repositories?q=express+in:name&sort=stars&order=desc')
+        .reply(200);
+      axios.get('https://api.github.com/search/repositories?q=express+in:name&sort=stars&order=desc')
+        .then((res) => {
+          expect(res).toBeDefined();
+        });
     });
   });
 });
